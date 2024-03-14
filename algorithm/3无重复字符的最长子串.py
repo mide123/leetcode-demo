@@ -1,7 +1,6 @@
 
 '''
-给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串
- 的长度。
+给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串的长度。
 示例 1:
 输入: s = "abcabcbb"
 输出: 3
@@ -20,4 +19,19 @@
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        pass
+        sub_list = []
+        max_len = 0
+        for c in s:
+            if c not in sub_list:
+                sub_list.append(c)
+                now_len = len(sub_list)
+                if max_len < now_len:
+                    max_len = now_len
+            else:
+                sub_list = sub_list[sub_list.index(c)+1:]
+                sub_list.append(c)
+        return max_len
+
+if __name__ == '__main__':
+    solution = Solution()
+    print(solution.lengthOfLongestSubstring("pwwkew"))
