@@ -13,4 +13,8 @@
 
 class Solution:
     def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:
-        pass
+        l1_len = len(nums1)
+        l2_len = len(nums2)
+
+        l1_space = l1_len//2
+        l2_space = l2_len//2
